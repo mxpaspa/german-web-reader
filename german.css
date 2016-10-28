@@ -1,0 +1,146 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+body { 
+  font-family: 'Open Sans', sans-serif;
+  color: #666;
+}
+
+/* STRUCTURE */
+.btn-group {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: auto;
+  margin-right: auto;
+    text-align: center;
+    width: 100%;
+}
+
+.btn-group a {
+    display:inline-block;
+}
+.btn-right {
+  position: relative;
+  float: center;
+  margin-left: auto;
+}
+
+.btn-left {
+  position: relative;
+  float: center;
+  margin-right: auto;
+}
+
+#pagewrap {
+	padding: 5px;
+	width: 1300px;
+	margin: 0px auto;
+}
+header {
+	height: 100px;
+	padding: 0 15px;
+}
+#left-sidebar {
+	width: 10%;
+	float: left;
+	padding: 5px 15px;
+}
+
+#middle {
+	width: 65%; /* Account for margins + border values */
+	float: left;
+	padding: 5px 15px;
+	margin: 0px 5px 5px 5px;
+}
+
+#sidebar {
+	width: 15%;
+	padding: 5px 15px;
+	float: left;
+}
+footer {
+	clear: both;
+	padding: 0 15px;
+}
+
+/************************************************************************************
+MEDIA QUERIES
+*************************************************************************************/
+/* for 980px or less */
+@media screen and (max-width: 980px) {
+	
+	#pagewrap {
+		width: 94%;
+	}
+	#left-sidebar {
+		width: 41%;
+		padding: 1% 4%;
+	}
+	#middle {
+		width: 41%;
+		padding: 1% 4%;
+		margin: 0px 0px 5px 5px;
+		float: right;
+	}
+	
+	#sidebar {
+		clear: both;
+		padding: 1% 4%;
+		width: auto;
+		float: none;
+	}
+
+	header, footer {
+		padding: 1% 4%;
+	}
+}
+
+/* for 700px or less */
+@media screen and (max-width: 600px) {
+
+	#left-sidebar {
+		width: auto;
+		float: none;
+	}
+	
+	#middle {
+		width: auto;
+		float: none;
+		margin-left: 0px;
+	}
+	
+	#sidebar {
+		width: auto;
+		float: none;
+	}
+
+}
+
+/* for 480px or less */
+@media screen and (max-width: 480px) {
+
+	header {
+		height: auto;
+	}
+	h1 {
+		font-size: 2em;
+	}
+	#sidebar {
+		display: none;
+	}
+
+}
+
+
+#left-sidebar {
+	background: #f8f8f8;
+}
+#sidebar {
+	background: #f0efef;
+}
+header, #left-sidebar, #middle, #sidebar {
+	margin-bottom: 5px;
+}
+
+#pagewrap, header, #left-sidebar, #middle, #sidebar, footer {
+	border: solid 1px #ccc;
+}
