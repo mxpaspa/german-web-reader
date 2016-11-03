@@ -1,10 +1,14 @@
+<!DOCTYPE html>
+ <link rel="stylesheet" href="german.css">
+
+
 <div id="pagewrap">
 
 	<header>
 		<!--PREVIOUS ARTICLE NEXT ARTICLE-->
   <div class="btn-group" role="group" aria-label="...">
-  <button type="button" class="btn btn-default btn-left">Previous Article</button>
-  <button type="button" class="btn btn-right btn-default right-align">Next Article</button>
+  <button type="button" class="btn btn-default btn-left" >Previous Article</button>
+  <button type="button" class="btn btn-right btn-default right-align" a href="{{ url_for('display_article') }}">>Next Article</button>
 </div>
 	</header>
 		
@@ -19,8 +23,7 @@
     <option role="separator" class="divider"></option>
     <option><a href="#">Separated link</a></option>
   </select>
-<!DOCTYPE html>
- <link rel="stylesheet" href="german.css">
+  
 </div>
     </div>
 </div>

@@ -1,26 +1,15 @@
+from flask import render_template
+from flask import request, redirect, url_for
+from . import app
+from .database import session, Entry
+from flask import flash
 
 
 
-
-
-newsurls = {
-    'apnews':           'http://hosted2.ap.org/atom/APDEFAULT/3d281c11a76b4ad082fe88aa0db04909',
-    'googlenews':       'http://news.google.com/?output=rss',
-    'yahoonews':        'http://news.yahoo.com/rss/'
-}
-
-
-@app.route("/api/feeds", methods=["GET"])
-@decorators.accept("application/json")
-def parse_RSS( rss_url):
-    """ Get articles through next article """
-    return feedparser.parse( rss_url ) 
-
-
-def parse_feed_content( rss_url)
-for urls in Feed:
-    Feed.parse_RSS()
-
+@app.route("/api/display_article")
+def display_content:
+    article = session.query.filter_by(id = id)
+    return render_template("iframe.html", article)
 
 
 
@@ -38,8 +27,10 @@ def parse_RSS( rss_url):
         hea
     
     return headlines
-    
-    
+
+
+
+
     
     
     
