@@ -1,3 +1,13 @@
 ###instert I frame here, link to display_article view##
 
-<a href = {{url_for('display_article'
+{% extends german.html %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<iframe src="{{url_for('display_article')}}" height="200" width="300"></iframe>
+
+</body>
+</html>
