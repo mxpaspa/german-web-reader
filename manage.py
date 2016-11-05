@@ -1,7 +1,8 @@
 import os
+from flask import Flask
 from flask.ext.script import Manager
 
-from blog import app
+from . import app
 
 manager = Manager(app)
 

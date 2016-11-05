@@ -6,4 +6,3 @@ config_path = os.environ.get("CONFIG_PATH", "germanapp.config.DevelopmentConfig"
 app.config.from_object(config_path)
 
 from . import views
-from . import filters

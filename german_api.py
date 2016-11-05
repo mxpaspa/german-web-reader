@@ -9,7 +9,7 @@ from flask import flash
 @app.route("/api/display_article")
 def display_content:
     article = session.query.filter_by(id = id)
-    return render_template("iframe.html", article)
+    return render_template("iframe.html", rss=rss,)
 
 
 
