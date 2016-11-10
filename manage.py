@@ -1,8 +1,7 @@
 import os
-from flask import Flask
-from flask.ext.script import Manager
 
-from . import app
+from flask.ext.script import Manager
+from germanapp import app
 
 manager = Manager(app)
 

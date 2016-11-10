@@ -8,3 +8,15 @@ engine = create_engine(app.config["SQLALCHEMY_DATABASE_URI"])
 Base = declarative_base()
 Session = sessionmaker(bind=engine)
 session = Session()
+
+@manager.command
+def seed():
+    content = 
+
+    for i in range(25):
+        entry = Entry(
+            title="Test Entry #{}".format(i),
+            content=content
+        )
+        session.add(entry)
+    session.commit()
