@@ -11,8 +11,8 @@ def front_page():
     
 @app.route("/api/display_article/<id>")
 def display_content(id):
-    article = session.query(Article).filter_by(id=id)
-    return render_template("iframe.html", article = article)
+    articles = session.query(Article).filter_by(id=id)
+    return render_template("iframe.html", articles = articles)
 
 
 

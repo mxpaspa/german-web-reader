@@ -13,13 +13,11 @@ def run():
     
 @manager.command
 def seed():
-    content = "test"
-
     for i in range(25):
-        article = Article(
-            url="http://www.breitbart.com/national-security/2016/11/09/foreign-leaders-react-donald-trumps-election-victory/"
+        id = Article(
+             "http://www.breitbart.com/national-security/2016/11/09/foreign-leaders-react-donald-trumps-election-victory/"
         )
-        session.add(article)
+        session.add(id)
     session.commit()
 
 if __name__ == "__main__":
