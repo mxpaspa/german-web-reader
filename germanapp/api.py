@@ -9,12 +9,10 @@ from flask import flash
 def front_page():
     return render_template("german.html")
     
-@app.route("/api/display_content/<id>")
-def display_content(id):
-    articles = session.query(Article).filter_by(id=id)
+@app.route("/api/display_content/")
+def display_content(article):
+    articles = session.query(Article).filter_by(iarticle = article)
     return render_template("iframe.html", articles = articles)
-
-
 
 
     

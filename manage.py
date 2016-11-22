@@ -13,7 +13,7 @@ def run():
     
 @manager.command
 def seed():
-        id = Article(
+        article = Article(
              "http://www.breitbart.com/national-security/2016/11/09/foreign-leaders-react-donald-trumps-election-victory/"
         )
         session.add(id)
