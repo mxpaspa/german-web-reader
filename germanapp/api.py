@@ -9,9 +9,9 @@ from flask import flash
 def front_page():
     return render_template("german.html")
     
-@app.route("/api/display_content/")
-def display_content(article):
-    articles = session.query(Article).filter_by(iarticle = article)
+@app.route("/api/display_content/<url>")
+def display_content(url):
+    articles = session.query(Article).filter_by(url = url)
     return render_template("iframe.html", articles = articles)
 
 

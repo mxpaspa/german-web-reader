@@ -13,7 +13,6 @@ session = Session()
 class Article(Base):
     __tablename__ = "articles"
     
-    id = Column(Integer, primary_key=True)
-    url = Column(String, nullable=False)
+    url = Column(String, primary_key=True)
 
 Base.metadata.create_all(engine)
