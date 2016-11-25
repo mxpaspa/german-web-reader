@@ -1,15 +1,14 @@
-###instert I frame here, link to display_article view##
+<head>
+	<link rel="stylesheet" href="/static/german.css">
+</head>
 
-{% extends german.html %}
+{% extends "german.html" %}
 {% block content %}
 
-<!DOCTYPE html>
-<html>
-<body>
 
-<iframe src="{{article.url}}" height="200" width="300" method="GET"></iframe>
 
-</body>
-</html>
+<iframe src="{{article.url}}" height="80%" width="100%"></iframe>
+
+
 
 {% endblock content %}
