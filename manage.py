@@ -13,13 +13,13 @@ def run():
     
 @manager.command
 def seed():
-        url = Article(
+        urls = Article(
             url = [
                 "https://www.breitbart.com/national-security/2016/11/09/foreign-leaders-react-donald-trumps-election-victory/"
                 "http://www.dailywire.com/news/11067/thoughtcrime-germany-prosecute-online-hate-speech-joshua-yasmeh"
                 ]
         )
-        session.add(url)
+        session.add(urls)
         session.commit()
 
 if __name__ == "__main__":

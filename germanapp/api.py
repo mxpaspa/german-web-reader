@@ -14,16 +14,13 @@ def display_first():
     article = session.query(Article).first()
     return render_template("iframe.html", article = article)
     
-@app.route("/api/display_content/<id>")
-def display_content(id):
-    article = session.query(Article).filter_by(id = id).all()
-    return render_template("iframe.html", article = article)
+@app.route("/api/display_next/<int:id>")
+def display_next(id):
+    article_id= session.query(Article).filter_by(id = id).all()
+    article_id = [ ]
+    next_article = [id[article_id.index(id) + 1] for id in article_id]
+    previous_article = [id[article_id.index(id) - 1] for id in article_id]
+    return render_template("iframe.html", next_article=next_article, previous_article=previous_article)
 
-@app.route("/api/previous_article/<id>")
-def display_previous(id):
-    current = []
-        
-    current = list(Article.id('id', 'url', flat=True)).index(id)
-    article = session.query(Article).index(current-1)
-    return render_template("iframe.html", article = article)
+
    
