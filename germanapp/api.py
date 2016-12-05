@@ -4,6 +4,8 @@ from . import app
 from .database import session, Article
 from flask import flash
 
+global article
+global next_article
 
 @app.route("/")
 def front_page():
@@ -13,14 +15,15 @@ def front_page():
 def display_first():
     article = session.query(Article).first()
     return render_template("iframe.html", article = article)
-    
-@app.route("/api/display_next/<int:id>")
+
+@app.route("/api/display_next/<id>/")
 def display_next(id):
-    article_id= session.query(Article).filter_by(id = id).all()
-    article_id = [ ]
-    next_article = [id[article_id.index(id) + 1] for id in article_id]
-    previous_article = [id[article_id.index(id) - 1] for id in article_id]
-    return render_template("iframe.html", next_article=next_article, previous_article=previous_article)
+    next_article = session.query(Article).filter_by(id = id).next(article.id)
+def display_previous(id):
+    previous_article = session.query(Article).filter_by(id = id).get(next_article.id - 1)
+    return render_template("iframe.html", next_article = next_article, previous_article = previous_article)
+    
+
 
 
    
