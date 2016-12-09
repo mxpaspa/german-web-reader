@@ -11,20 +11,24 @@ global article
 def front_page():
     return render_template("german.html")
 
-@app.route("/api/display_content/")
-def display_first():
-    article = session.query(Article).first()
-    return render_template("iframe.html", article = article)
+@app.route("/api/display_content/<id>")
+def display_content(id = -1):
+    if (id > 0):
+        article = session.query(Article).filter(Article.id == id).first()
+    else:
+        article = session.query(Article).first()
 
-@app.route("/api/display_next/<id>/")
-def display_next(id):
+    next_article = get_next(article.id)
+    previous_article = get_previous(article.id)
+    return render_template("iframe.html", article = article, next_article=next_article, previous_article=previous_article)
+
+def get_next(id):
     next_article = session.query(Article).filter(Article.id > id).first()
-    return render_template("iframe.html", next_article = next_article)
+    return next_article
     
-@app.route("/api/display_previous/<id>/")
-def display_previous(id):
+def get_previous(id):
     previous_article = session.query(Article).filter(Article.id < id).first()
-    return render_template("iframe.html", previous_article = previous_article)
+    return previous_article
     
 
 

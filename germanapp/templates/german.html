@@ -12,10 +12,12 @@
 			<header>
 				<!--PREVIOUS ARTICLE NEXT ARTICLE-->
 		  <div class="btn-group" role="group" aria-label="...">
-		  <a href="{{ url_for('display_first') }}">&gt; First Article</a>
-		  	{% if article %}
-		  <a href="{{ url_for('display_previous',id=next_article.id-1) }}">&gt;Previous</a>
-		  <a href="{{ url_for('display_next',id=previous_article.id+1) }}">&gt;Next Article</a>
+		  <a href="{{ url_for('display_content', id=-1) }}">&gt; First Article</a>
+		  	{% if next_article %}
+              <a href="{{ url_for('display_content', id=next_article.id) }}">&gt;Next Article</a>
+            {% endif %}
+		  	{% if previous_article %}
+              <a href="{{ url_for('display_content', id=previous_article.id) }}">&gt;Previous Article</a>
 		  	{% endif %}
 		</div>
 			</header>
