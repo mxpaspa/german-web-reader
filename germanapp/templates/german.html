@@ -14,8 +14,8 @@
 		  <div class="btn-group" role="group" aria-label="...">
 		  <a href="{{ url_for('display_first') }}">&gt; First Article</a>
 		  	{% if article %}
-		  <a href="{{ url_for('display_previous',id=article.id-1) }}">&gt;Previous</a>
-		  <a href="{{ url_for('display_next',id=article.id+1) }}">&gt;Next Article</a>
+		  <a href="{{ url_for('display_previous',id=next_article.id-1) }}">&gt;Previous</a>
+		  <a href="{{ url_for('display_next',id=previous_article.id+1) }}">&gt;Next Article</a>
 		  	{% endif %}
 		</div>
 			</header>

@@ -5,7 +5,7 @@ from .database import session, Article
 from flask import flash
 
 global article
-global next_article
+
 
 @app.route("/")
 def front_page():
@@ -18,10 +18,13 @@ def display_first():
 
 @app.route("/api/display_next/<id>/")
 def display_next(id):
-    next_article = session.query(Article).filter_by(id = id).next(article.id)
+    next_article = session.query(Article).filter(Article.id > id).first()
+    return render_template("iframe.html", next_article = next_article)
+    
+@app.route("/api/display_previous/<id>/")
 def display_previous(id):
-    previous_article = session.query(Article).filter_by(id = id).get(next_article.id - 1)
-    return render_template("iframe.html", next_article = next_article, previous_article = previous_article)
+    previous_article = session.query(Article).filter(Article.id < id).first()
+    return render_template("iframe.html", previous_article = previous_article)
     
 
 
