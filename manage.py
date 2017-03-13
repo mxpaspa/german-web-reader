@@ -1,7 +1,7 @@
 import os
-from germanapp.database import session, Article
+from database import session, Article
 from flask.ext.script import Manager
-from germanapp import app
+from runserver import app
 
 
 manager = Manager(app)
@@ -10,16 +10,17 @@ manager = Manager(app)
 def run():
     port = int(os.environ.get('PORT', 8080))
     app.run(host='0.0.0.0', port=port)
-    
+
 @manager.command
 def seed():
         urls = [
-                Article( url = "https://www.breitbart.com/national-security/2016/11/09/foreign-leaders-react-donald-trumps-election-victory/" ),
-                Article( url = "http://www.dailywire.com/news/11067/thoughtcrime-germany-prosecute-online-hate-speech-joshua-yasmeh" )
+                "https://www.welt.de/kultur/kunst-und-architektur/article162781863/Deutsche-Mediziner-loesen-Raetsel-um-Mona-Lisas-Laecheln.html"
                ]
-        session.add(urls)
-        session.commit()
+        for url in urls:
+            article = Article()
+            article.url = url
+            session.add(article)
+            session.commit()
 
 if __name__ == "__main__":
     manager.run()
-    

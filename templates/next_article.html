@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<link rel="stylesheet" href="/static/german.css">
+		<title>German Language Learning App</title>
+	</head>
+	<body>
+
+		<div id="pagewrap">
+
+			<header>
+				<!--PREVIOUS ARTICLE NEXT ARTICLE-->
+		  <div class="btn-group" role="group" aria-label="...">
+		  <a href="{{ url_for('display_content', id=1) }}">&gt; First Article</a>
+		  	{% if next_article %}
+              <a href="{{ url_for('display_content', id=next_article.id) }}">&gt;Next Article</a>
+            {% endif %}
+		  	{% if previous_article %}
+              <a href="{{ url_for('display_content', id=previous_article.id) }}">&gt;Previous Article</a>
+		  	{% endif %}
+		</div>
+			</header>
+
+			<section id="left-sidebar">
+				<h2>left sidebar</h2>
+				<div class="dropdown">
+		  <select class="dropdown-menu" aria-labelledby="dropdownMenu3">
+		    <option class="dropdown-header">Categories</option>
+		    <option><a href="#">Action</a></option>
+		    <option><a href="#">Another action</a></option>
+		    <option><a href="#">Something else here</a></option>
+		    <option role="separator" class="divider"></option>
+		    <option><a href="#">Separated link</a></option>
+		  </select>
+
+		</div>
+		    </div>
+		</div>
+			</section>
+
+			<section id="middle">
+				<h2>Article Reader</h2>
+				{% block content %}
+				{% endblock content %}
+			</section>
+
+			<aside id="sidebar">
+				<h2>Right Sidebar</h2>
+				<p>Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
+				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+				<p>Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.</p>
+			</aside>
+
+			<footer>
+				<h4>Footer</h4>
+				<p>Footer text</p>
+			</footer>
+
+		</div>
+
+	</body>
+</html>
