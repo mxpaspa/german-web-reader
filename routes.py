@@ -17,7 +17,7 @@ def front_page():
 def display_content(id = 1):
 
     article = session.query(Article).filter(Article.id == id).first()
-    
+
 
     print("article: ")
     print(article)
