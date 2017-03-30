@@ -69,9 +69,15 @@
 				<div class="panel panel-default post-panel">
 
 						<button type="submit" class="btn btn-default" style="margin: 13px; margin-left: 220px"><a href="{{ url_for('display_content', id=1) }}"> First Article</a></button>
+						{% if next_article %}
 						<button type="submit" class="btn btn-default"style="margin: 13px; position: center"><a href="{{ url_for('display_content', id=next_article.id) }}">Next Article</a></button>
-		        
+						{% endif %}
+
+						{% if previous_article %}
+						<button type="submit" class="btn btn-default" style="margin: 13px; position: center"><a href="{{ url_for('display_content', id=previous_article.id) }}">Previous Article</a></button>
+						{% endif %}
 				</div>
+
 
 				<!-- iFrame-->
 
@@ -95,5 +101,6 @@
 
 
 
+		<!-- <script type="text/javascript" src="word_selector.js"></script> -->
 	</body>
 </html>
