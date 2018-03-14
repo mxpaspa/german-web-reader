@@ -7,7 +7,7 @@ from sqlalchemy import create_engine, Column, Integer, String
 
 
 #from api import app
-from runserver import app
+# from runserver import app
 
 
 #engine = create_engine(app.config["DATABASE_URI"])

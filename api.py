@@ -6,8 +6,8 @@ from database import session, Article
 
 global article
 
-#app = Flask(__name__)
-from runserver import app
+app = Flask(__name__)
+
 
 @app.route("/")
 def front_page():
